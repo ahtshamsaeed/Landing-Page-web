@@ -22,7 +22,7 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
     <link rel="stylesheet" href="css/media.css?v=2" />
 </head>
 
@@ -1356,9 +1356,32 @@
     <script>
       const mobileNavMenu = document.getElementById("mobileNavMenu");
       mobileNavMenu?.addEventListener("click", (event) => {
-        if (event.target.closest(".nav-link")) {
-          bootstrap.Offcanvas.getInstance(mobileNavMenu)?.hide();
+        const link = event.target.closest("a.nav-link");
+        if (!link) return;
+
+        const target = document.getElementById(link.hash.slice(1));
+        if (!target) return;
+
+        event.preventDefault();
+
+        const navigateToTarget = () => {
+          if (window.location.hash !== link.hash) {
+            window.location.hash = link.hash;
+          } else {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        };
+
+        const offcanvas = bootstrap.Offcanvas.getInstance(mobileNavMenu);
+        if (!offcanvas || !mobileNavMenu.classList.contains("show")) {
+          navigateToTarget();
+          return;
         }
+
+        mobileNavMenu.addEventListener("hidden.bs.offcanvas", navigateToTarget, {
+          once: true,
+        });
+        offcanvas.hide();
       });
 
     document

@@ -21,6 +21,93 @@ header {
   height: auto;
 }
 
+.navbar-nav .nav-link {
+  padding: 0.5rem 0.55rem;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #2699fb;
+}
+
+.navbar-toggler {
+  border-color: #dce2e9;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(38, 153, 251, 0.2);
+}
+
+@media (max-width: 991.98px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navbar-brand {
+    order: 1;
+  }
+
+  .navbar > .btn-outer {
+    order: 2;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .navbar > .btn-outer .btn {
+    flex-shrink: 0;
+  }
+
+  .navbar-toggler {
+    order: 3;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .navbar-collapse {
+    order: 4;
+    flex-basis: 100%;
+    padding-top: 12px;
+  }
+
+  .navbar-nav {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #eef2f6;
+  }
+}
+
+.navbar .btn-outer .whatsappbtn,
+.navbar .btn-outer .call {
+  width: auto;
+  flex: 0 0 auto;
+  padding: 8px 18px;
+}
+
+@media (max-width: 575px) {
+  .navbar .btn-outer .whatsappbtn,
+  .navbar .btn-outer .call {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar .btn-outer .whatsappbtn,
+  .navbar .btn-outer .call {
+    padding: 6px 7px;
+    font-size: 10px;
+  }
+}
+
 .whatsappbtn {
   border: 1px solid #27ae60;
   padding: 8px 18px;

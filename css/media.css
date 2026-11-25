@@ -6,10 +6,20 @@
   }
 }
 
+@media (min-width: 992px) {
+  .hero-section .bannercontent {
+    transform: translateY(-28px);
+  }
+}
+
 /* ================= TABLET RESPONSIVE ================= */
 
 @media (min-width: 576px) and (max-width: 991px) {
   /* Hero */
+
+  .hero-section .bannercontent {
+    transform: translateY(-12px);
+  }
 
   .bannercontent h1 {
     font-size: 36px;
@@ -142,6 +152,10 @@
 
   .hero-section {
     padding: 35px 0 20px;
+  }
+
+  .hero-section .bannercontent {
+    transform: none;
   }
 
   .bannercontent h1 {

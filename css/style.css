@@ -53,6 +53,13 @@ header {
 
 .mobile-nav-offcanvas {
   --bs-offcanvas-width: min(240px, 80vw);
+  height: fit-content;
+  max-height: 100vh;
+  bottom: auto;
+}
+
+.mobile-nav-offcanvas .offcanvas-body {
+  flex-grow: 0;
 }
 
 .mobile-nav-offcanvas .offcanvas-title {

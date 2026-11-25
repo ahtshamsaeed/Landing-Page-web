@@ -205,6 +205,11 @@
 
                         </button>
 
+                        <p class="lead-form-feedback" id="leadFormFeedback" role="status" aria-live="polite" hidden></p>
+                        <a class="lead-whatsapp-fallback" id="leadWhatsAppFallback" target="_blank" rel="noopener" hidden>
+                            Open WhatsApp to send your request
+                        </a>
+
                     </form>
 
                 </div>
@@ -1413,25 +1418,32 @@
 
     document.querySelectorAll('.lead-form').forEach((form) => {
         form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
+            event.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
 
-        const formData = new FormData(form);
-        const name = (formData.get('name') || '').toString().trim();
-        const submissionKey = 'digitalMarketingLeads';
-        const savedLeads = JSON.parse(localStorage.getItem(submissionKey) || '[]');
-        savedLeads.push({
-            name,
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            submittedAt: new Date().toISOString()
-        });
-        localStorage.setItem(submissionKey, JSON.stringify(savedLeads));
-        form.reset();
-        alert(`Thank you, ${name || 'student'}! Your demo request has been received.`);
+            const formData = new FormData(form);
+            const name = (formData.get('name') || '').toString().trim();
+            const email = (formData.get('email') || '').toString().trim();
+            const phone = (formData.get('phone') || '').toString().replace(/\D/g, '').replace(/^0+/, '');
+            const internationalPhone = phone.startsWith('92') ? `+${phone}` : `+92${phone}`;
+            const message = [
+                'Hi, I would like to book the 2-day digital marketing demo class.',
+                `Name: ${name}`,
+                `Email: ${email}`,
+                `Mobile: ${internationalPhone}`
+            ].join('\n');
+            const whatsappUrl = `https://wa.me/923134489923?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            const feedback = document.getElementById('leadFormFeedback');
+            const fallbackLink = document.getElementById('leadWhatsAppFallback');
+
+            feedback.hidden = false;
+            fallbackLink.href = whatsappUrl;
+            fallbackLink.hidden = false;
+            feedback.textContent = 'WhatsApp will open with your details. Tap Send there to submit your request. If it did not open, use the link below.';
         });
     });
 

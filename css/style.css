@@ -210,6 +210,28 @@ header {
     opacity: 0.9;
 }
 
+.lead-form-feedback,
+.lead-whatsapp-fallback {
+    display: block;
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#leadFormFeedback[hidden],
+#leadWhatsAppFallback[hidden] {
+    display: none;
+}
+
+.lead-form-feedback {
+    color: #344054;
+}
+
+.lead-whatsapp-fallback {
+    color: #168a4a;
+    font-weight: 600;
+}
+
 /* ================= STATISTICS ================= */
 
 .statistics-section {

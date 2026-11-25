@@ -34,6 +34,39 @@ header {
   color: #2699fb;
 }
 
+.navbar-desktop-menu {
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-desktop-menu .navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.mobile-nav-offcanvas {
+  --bs-offcanvas-width: min(320px, 85vw);
+}
+
+.mobile-nav-offcanvas .offcanvas-title {
+  color: #122334;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mobile-nav-offcanvas .nav-link {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #eef2f6;
+  font-size: 16px;
+}
+
 .navbar-toggler {
   border-color: #dce2e9;
 }
@@ -44,44 +77,23 @@ header {
 
 @media (max-width: 991.98px) {
   .navbar {
-    display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .navbar-brand {
-    order: 1;
+    margin-right: 0.5rem;
   }
 
-  .navbar > .btn-outer {
-    order: 2;
-    flex-shrink: 0;
-    margin-left: auto;
+  .navbar-controls {
+    gap: 6px;
   }
 
-  .navbar > .btn-outer .btn {
+  .navbar .btn-outer .btn {
     flex-shrink: 0;
   }
 
-  .navbar-toggler {
-    order: 3;
-    flex-shrink: 0;
-    margin-left: auto;
-  }
-
-  .navbar-collapse {
-    order: 4;
-    flex-basis: 100%;
-    padding-top: 12px;
-  }
-
-  .navbar-nav {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid #eef2f6;
+  .navbar .logo {
+    max-width: 105px;
   }
 }
 
@@ -93,6 +105,10 @@ header {
 }
 
 @media (max-width: 575px) {
+  .navbar .logo {
+    max-width: 120px;
+  }
+
   .navbar .btn-outer .whatsappbtn,
   .navbar .btn-outer .call {
     padding: 7px 9px;
@@ -101,6 +117,10 @@ header {
 }
 
 @media (max-width: 360px) {
+  .navbar .logo {
+    max-width: 110px;
+  }
+
   .navbar .btn-outer .whatsappbtn,
   .navbar .btn-outer .call {
     padding: 6px 7px;

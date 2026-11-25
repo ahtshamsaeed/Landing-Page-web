@@ -205,10 +205,7 @@
 
                         </button>
 
-                        <p class="lead-form-feedback" id="leadFormFeedback" role="status" aria-live="polite" hidden></p>
-                        <a class="lead-whatsapp-fallback" id="leadWhatsAppFallback" target="_blank" rel="noopener" hidden>
-                            Open WhatsApp to send your request
-                        </a>
+                        <p class="lead-form-note">After submitting, WhatsApp opens with your details. Tap Send to complete your request.</p>
 
                     </form>
 
@@ -1436,14 +1433,7 @@
                 `Mobile: ${internationalPhone}`
             ].join('\n');
             const whatsappUrl = `https://wa.me/923134489923?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-            const feedback = document.getElementById('leadFormFeedback');
-            const fallbackLink = document.getElementById('leadWhatsAppFallback');
-
-            feedback.hidden = false;
-            fallbackLink.href = whatsappUrl;
-            fallbackLink.hidden = false;
-            feedback.textContent = 'WhatsApp will open with your details. Tap Send there to submit your request. If it did not open, use the link below.';
+            window.location.assign(whatsappUrl);
         });
     });
 

@@ -52,7 +52,7 @@ header {
 }
 
 .mobile-nav-offcanvas {
-  --bs-offcanvas-width: min(320px, 85vw);
+  --bs-offcanvas-width: min(240px, 80vw);
 }
 
 .mobile-nav-offcanvas .offcanvas-title {

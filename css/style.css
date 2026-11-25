@@ -37,6 +37,7 @@ header {
 .navbar-desktop-menu {
   flex: 1;
   justify-content: center;
+  transform: translateX(-20px);
 }
 
 .navbar-desktop-menu .navbar-nav {
@@ -101,6 +102,12 @@ header {
 
   .navbar .logo {
     max-width: 105px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    margin-left: 8px;
   }
 }
 

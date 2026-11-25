@@ -120,8 +120,8 @@ header {
   }
 
   .navbar-toggler-icon {
-    width: 20px;
-    height: 20px;
+    width: 13px;
+    height: 13px;
   }
 }
 
@@ -170,8 +170,8 @@ header {
 }
 
 .whatsappbtn:hover {
-  border-color: #27ae60;
-  color: #27ae60;
+  border-color: #27ae9e;
+  color: #27ae93;
   background: #f0fff5;
 }
 
@@ -184,8 +184,8 @@ header {
 }
 
 .call:hover {
-  border-color: #27ae60;
-  color: #27ae60;
+  border-color: #018efb;
+  color: #018efb;
   background: #f0fff5;
 }
 
